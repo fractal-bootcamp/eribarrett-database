@@ -6,6 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["typedSql"]
 }
 
 datasource db {
@@ -18,10 +19,10 @@ model Book{
   title String
   author Author @relation(fields: [authorId], references: [id])
   authorId Int
-  member Member @relation(fields: [memberId], references: [id])
-  memberId Int
   isbn String
   genres BookGenres[]
+  rented Boolean
+ 
   //rented??? If member has book , mark true aka Not Available
 }
 
@@ -43,7 +44,6 @@ model Member{
   name String
   email String
   address String
-  rented Book[]
 }
 
 model BookGenres{
