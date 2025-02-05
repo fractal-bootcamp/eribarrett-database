@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    command: -c fsync=off -c full_page_writes=off -c synchronous_commit=off -c max_connections=500
+    ports:
+      - 10002:5432
+    
+    
+    
+    
+    
+    
+    # ports:
+    #   - 5432:5432
+    # volumes:
+    #   - ~/apps/postgres:/var/lib/postgresql/data
+    # environment:
+    #   - POSTGRES_PASSWORD=S3cret
+    #   - POSTGRES_USER=citizix_user
+    #   - POSTGRES_DB=citizix_db
